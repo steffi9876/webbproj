@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Jobbansökningar</title>
+</head>
+<body>
+<h1>Mina jobbansökningar</h1>
+<table border="1">
+    <thead>
+    <tr>
+        <th>Företag</th>
+        <th>Roll</th>
+        <th>Datum</th>
+        <th>Kontaktperson</th>
+        <th>Status</th>
+        <th>Anteckningar</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="job : ${applications}">
+        <td th:text="${job.company}">Företag</td>
+        <td th:text="${job.position}">Roll</td>
+        <td th:text="${job.applicationDate}">Datum</td>
+        <td th:text="${job.contactPerson}">Kontaktperson</td>
+        <td th:text="${job.status}">Status</td>
+        <td th:text="${job.notes}">Anteckningar</td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
