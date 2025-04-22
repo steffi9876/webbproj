@@ -14,24 +14,19 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class ViewController {
-    /*@Autowired
-    private JobApplicationService service;
-
-    @GetMapping("/applications")
-    public String viewApplications(Model model) {
-        model.addAttribute("applications", service.getAll());
-        return "applications"; // thymeleaf .html i templates
-    }*/
-
-
     @Autowired
     private JobApplicationService service;
 
     @GetMapping("/applications")
     public String viewApplications(Model model) {
         model.addAttribute("applications", service.getAll());
-        model.addAttribute("jobApplication", new JobApplication()); // behövs för formuläret
         return "applications";
+    }
+
+    @GetMapping("/applications/new")
+    public String showAddForm(Model model) {
+        model.addAttribute("jobApplication", new JobApplication());
+        return "new-application";
     }
 
     @PostMapping("/applications")
@@ -41,8 +36,7 @@ public class ViewController {
             Model model) {
 
         if (result.hasErrors()) {
-            model.addAttribute("applications", service.getAll());
-            return "applications";
+            return "new-application";
         }
 
         service.save(jobApplication);
@@ -52,6 +46,26 @@ public class ViewController {
     @GetMapping("/applications/delete/{id}")
     public String deleteApplication(@PathVariable Long id) {
         service.delete(id);
+        return "redirect:/applications";
+    }
+
+    @GetMapping("/applications/edit/{id}")
+    public String showEditForm(@PathVariable Long id, Model model) {
+        JobApplication application = service.findById(id);
+        model.addAttribute("jobApplication", application);
+        return "edit-application";
+    }
+
+    @PostMapping("/applications/update/{id}")
+    public String updateApplication(@PathVariable Long id,
+                                    @Valid @ModelAttribute("jobApplication") JobApplication jobApplication,
+                                    BindingResult result) {
+        if (result.hasErrors()) {
+            return "edit-application";
+        }
+
+        jobApplication.setId(id); // viktigt så att rätt post uppdateras
+        service.save(jobApplication);
         return "redirect:/applications";
     }
 

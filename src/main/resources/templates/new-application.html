@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Lägg till ansökan</title>
+  <link rel="stylesheet" th:href="@{/css/styles.css}" />
+</head>
+<body>
+
+<h1>Lägg till ny ansökan</h1>
+
+<form th:action="@{/applications}" th:object="${jobApplication}" method="post">
+  <label>Företag:
+    <input type="text" th:field="*{company}" />
+    <span th:if="${#fields.hasErrors('company')}" th:errors="*{company}"></span>
+  </label>
+
+  <label>Roll:
+    <input type="text" th:field="*{position}" />
+    <span th:if="${#fields.hasErrors('position')}" th:errors="*{position}"></span>
+  </label>
+
+  <label>Ansökningsdatum:
+    <input type="date" th:field="*{applicationDate}" />
+    <span th:if="${#fields.hasErrors('applicationDate')}" th:errors="*{applicationDate}"></span>
+  </label>
+
+  <label>Kontaktperson:
+    <input type="text" th:field="*{contactPerson}" />
+  </label>
+
+  <label>Status:
+    <select th:field="*{status}">
+      <option value="">Välj status</option>
+      <option value="Sökt">Sökt</option>
+      <option value="Intervju">Intervju</option>
+      <option value="Nej">Nej</option>
+    </select>
+    <span th:if="${#fields.hasErrors('status')}" th:errors="*{status}"></span>
+  </label>
+
+  <label>Anteckningar:
+    <textarea th:field="*{notes}"></textarea>
+  </label>
+
+  <button type="submit">Spara</button>
+</form>
+
+<p><a th:href="@{/applications}">⬅️ Tillbaka till listan</a></p>
+
+</body>
+</html>

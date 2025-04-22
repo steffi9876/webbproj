@@ -22,6 +22,11 @@ public class JobApplicationService {
         return repository.findById(id);
     }
 
+    public JobApplication findById(Long id) {
+        return repository.findById(id).orElseThrow(() -> new IllegalArgumentException("Ansökan finns inte: " + id));
+    }
+
+
     public JobApplication create(JobApplication application) {
         return repository.save(application);
     }
