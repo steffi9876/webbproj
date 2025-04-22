@@ -17,6 +17,12 @@ public class ViewController {
     @Autowired
     private JobApplicationService service;
 
+
+    @GetMapping("/")
+    public String home() {
+        return "index";
+    }
+
     @GetMapping("/applications")
     public String viewApplications(Model model) {
         model.addAttribute("applications", service.getAll());
@@ -68,5 +74,6 @@ public class ViewController {
         service.save(jobApplication);
         return "redirect:/applications";
     }
+
 
 }

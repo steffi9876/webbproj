@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Jobbansökningstracker</title>
+  <link rel="stylesheet" th:href="@{/css/styles.css}" />
+</head>
+<body>
+
+
+<header class="main-header">
+  <nav>
+    <ul>
+      <li><a th:href="@{/}">🏠 Startsida</a></li>
+      <li><a th:href="@{/applications}">📄 Visa ansökningar</a></li>
+      <li><a th:href="@{/applications/new}">➕ Lägg till ansökan</a></li>
+    </ul>
+  </nav>
+</header>
+
+
+<h1 class="glow-heading left">Jobb<br/>Tracker</h1>
+
+<p class="glow-heading left p">Här kan du hålla koll på alla jobb du sökt – enkelt och organiserat!</p>
+
+</body>
+</html>
