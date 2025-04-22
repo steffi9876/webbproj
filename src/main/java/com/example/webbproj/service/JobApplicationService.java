@@ -43,4 +43,9 @@ public class JobApplicationService {
     public void delete(Long id) {
         repository.deleteById(id);
     }
+
+    public void save(JobApplication jobApplication) {
+        repository.save(jobApplication);
+    }
+
 }
