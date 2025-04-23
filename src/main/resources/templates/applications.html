@@ -4,46 +4,51 @@
     <meta charset="UTF-8">
     <title>Mina jobbansökningar</title>
     <link rel="stylesheet" th:href="@{/css/styles.css}" />
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@200;300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<h1>Mina jobbansökningar</h1>
+<header class="main-header">
+    <nav class="nav-bar">
+        <ul>
+            <li><a th:href="@{/}">STARTSIDA</a></li>
+            <li><a th:href="@{/applications}">VISA ANSÖKNINGAR</a></li>
+            <li><a th:href="@{/applications/new}">LÄGG TILL ANSÖKAN</a></li>
+        </ul>
+    </nav>
+</header>
 
-<!-- Länk till ny ansökan -->
-<p><a th:href="@{/}">🏠 Startsida</a></p>
-<p><a th:href="@{/applications/new}">➕ Lägg till ny ansökan</a></p>
-
-<table>
-    <thead>
-    <tr>
-        <th>Företag</th>
-        <th>Roll</th>
-        <th>Datum</th>
-        <th>Kontaktperson</th>
-        <th>Status</th>
-        <th>Anteckningar</th>
-        <th>Åtgärd</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="job : ${applications}">
-        <td th:text="${job.company}">Företag</td>
-        <td th:text="${job.position}">Roll</td>
-        <td th:text="${job.applicationDate}">Datum</td>
-        <td th:text="${job.contactPerson}">Kontaktperson</td>
-        <td th:text="${job.status}">Status</td>
-        <td th:text="${job.notes}">Anteckningar</td>
-
-        <td>
-            <a th:href="@{'/applications/edit/' + ${job.id}}">✏️ Ändra</a> |
-            <a th:href="@{'/applications/delete/' + ${job.id}}"
-               onclick="return confirm('Är du säker på att du vill ta bort denna ansökan?')">🗑️ Ta bort</a>
-        </td>
-
-    </tr>
-    </tbody>
-</table>
+<div class="table-wrapper">
+    <table class="application-table">
+        <thead>
+        <tr>
+            <th>FÖRETAG</th>
+            <th>ROLL</th>
+            <th>DATUM</th>
+            <th>KONTAKTPERSON</th>
+            <th>STATUS</th>
+            <th>ANTECKNING</th>
+            <th>ÅTGÄRD</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="job : ${applications}">
+            <td th:text="${job.company}">Företag</td>
+            <td th:text="${job.position}">Roll</td>
+            <td th:text="${job.applicationDate}">Datum</td>
+            <td th:text="${job.contactPerson}">Kontaktperson</td>
+            <td th:text="${job.status}">Status</td>
+            <td th:text="${job.notes}">Anteckningar</td>
+            <td>
+                <a th:href="@{'/applications/edit/' + ${job.id}}">Ändra ✏️</a>
+                <a th:href="@{'/applications/delete/' + ${job.id}}"
+                   onclick="return confirm('Är du säker på att du vill ta bort denna ansökan?')">Ta bort 🗑️</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
 
 </body>
 </html>
-

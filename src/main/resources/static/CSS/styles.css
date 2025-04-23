@@ -180,7 +180,7 @@ h1, h2 {
 .hero-video {
     flex: 1;
     max-width: 100%;
-    margin-top: -2rem;
+    margin-top: -7rem;
 }
 
 
@@ -218,6 +218,76 @@ h1, h2 {
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
 }
 
+/* */
+.table-wrapper {
+    max-width: 1300px;
+    margin: 4rem auto;
+    padding: 0;
+    background: none;
+    border-radius: 12px;
+    overflow-x: auto;
+}
+
+.application-table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse; /* Detta gör att cellerna delar kant */
+    border-spacing: 0; /* SUPERviktigt – tar bort mellanrum mellan celler */
+    background-color: #1c1c1c;
+    color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: lighter;
+    border: none;
+}
 
 
+.application-table thead {
+    background-color: transparent;
+    color: white;
+}
 
+.application-table th {
+    background-color: #7e57c2 !important;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    word-wrap: break-word;
+    font-weight: 600;
+    font-size: 1.1rem;
+    border: none; /* <-- viktigaste raden */
+}
+
+.application-table td {
+    padding: 1rem;
+    text-align: left;
+    background-color: #1c1c1c;
+    word-wrap: break-word;
+    font-size: 1.05rem;
+    border: none; /* <-- viktigaste raden */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+
+.application-table td:nth-child(even),
+.application-table th:nth-child(even) {
+    background-color: #202020; /* närmare #1c1c1c */
+}
+
+
+/* Hover-effekt på rad */
+.application-table tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Länkstil */
+.application-table a {
+    color: #cdb4db;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.application-table a:hover {
+    text-decoration: underline;
+}
