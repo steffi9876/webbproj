@@ -39,5 +39,3 @@ out/
 ### Application properties file ###
 /src/main/resources/application.properties
 
-# Ignorera video-mapp
-src/main/resources/static/videos/
