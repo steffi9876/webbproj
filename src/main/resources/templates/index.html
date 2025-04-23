@@ -3,25 +3,37 @@
 <head>
   <meta charset="UTF-8">
   <title>Jobbansökningstracker</title>
-  <link rel="stylesheet" th:href="@{/css/styles.css}" />
+  <link rel="stylesheet" th:href="@{/CSS/styles.css}" />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@200;300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
 </head>
 <body>
-
-
 <header class="main-header">
-  <nav>
+  <nav class="nav-bar">
     <ul>
-      <li><a th:href="@{/}">🏠 Startsida</a></li>
-      <li><a th:href="@{/applications}">📄 Visa ansökningar</a></li>
-      <li><a th:href="@{/applications/new}">➕ Lägg till ansökan</a></li>
+      <li><a th:href="@{/}">STARTSIDA</a></li>
+      <li><a th:href="@{/applications}">VISA ANSÖKNINGAR</a></li>
+      <li><a th:href="@{/applications/new}">LÄGG TILL ANSÖKAN</a></li>
     </ul>
   </nav>
 </header>
 
 
-<h1 class="glow-heading left">Jobb<br/>Tracker</h1>
-
-<p class="glow-heading left p">Här kan du hålla koll på alla jobb du sökt – enkelt och organiserat!</p>
+<section class="hero-split">
+  <div class="hero-text">
+    <h1 class="glow-heading">Jobb<br>Tracker</h1>
+    <!--<p class="mini-p">Håll koll på dina jobbansökningar – enkelt och organiserat.</p>-->
+    <p class="mini-p">HÅLL KOLL PÅ DINA JOBBANSÖKNINGAR, ENKELT OCH ORGANISERAT</p>
+    <a href="/applications/new" class="start-button">KOM IGÅNG</a>
+  </div>
+  <div class="hero-video">
+    <video autoplay muted loop playsinline>
+      <source src="/videos/vecteezy_office-worker-woman-typing-on-notebook-on-alpha-channel-2d_45731936.mp4" type="video/mp4">
+      Din webbläsare stödjer inte videouppspelning.
+    </video>
+  </div>
+</section>
 
 </body>
 </html>
