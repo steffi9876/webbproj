@@ -7,15 +7,16 @@ html, body {
 body {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     min-height: 100vh;
     margin: 0;
     padding: 0;
-    background: #0d0d0d;
+    background: black;
     background-size: cover;
     color: white;
 }
+
 
 form {
     background-color: #ffffff;
@@ -88,7 +89,10 @@ h1, h2 {
     color: #ffffff;
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.3),
     0 0 20px rgba(255, 255, 255, 0.2);
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
+    margin-top: -10rem;
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: lighter;
 }
 
 
@@ -98,8 +102,11 @@ h1, h2 {
     margin-left: 10vw;
 }
 
-.p {
-    font-size: 0.8rem;
+.mini-p {
+    font-size: 1rem;
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: lighter;
+    margin-left: 1.5rem;
 }
 
 /* */
@@ -107,7 +114,7 @@ h1, h2 {
 .main-header {
     width: 100%;
     padding: 1rem 5vw;
-    background-color: #1a1a1a;
+    background-color: black;
     box-shadow: 0 2px 10px rgba(0,0,0,0.5);
     position: sticky;
     top: 0;
@@ -116,22 +123,101 @@ h1, h2 {
 
 .main-header nav ul {
     list-style: none;
-    margin: 0;
-    padding: 0;
     display: flex;
     gap: 2rem;
+    justify-content: flex-end;
+    padding-right: 3vw;
+    margin-top: 0.8rem;
+}
+
+
+.main-header {
+    margin-bottom: 8rem;
+    font-family: 'Source Sans 3', sans-serif;
 }
 
 .main-header nav ul li a {
+    position: relative;
     color: #ffffff;
     text-decoration: none;
-    font-weight: bold;
-    font-size: 1.1rem;
+    font-weight: 200;
+    font-size: 1.3rem;
     transition: color 0.3s ease;
 }
 
-.main-header nav ul li a:hover {
-    color: #00ffe7;
+
+.main-header nav ul li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px; /* avstånd under texten */
+    width: 0;
+    height: 2px;
+    background-color: #cdb4db;
+    transition: width 0.3s ease;
 }
+
+.main-header nav ul li a:hover::after {
+    width: 100%; /* linjen glider ut från vänster till höger */
+}
+
+/*  */
+
+.hero-split {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3rem 5vw;
+    gap: 2rem;
+}
+
+.hero-text {
+    flex: 1;
+    color: white;
+    padding-right: 2rem;
+}
+
+.hero-video {
+    flex: 1;
+    max-width: 100%;
+    margin-top: -2rem;
+}
+
+
+.hero-video video {
+    width: 100%;
+    height: 500px; /* eller 600px – testa dig fram */
+    object-fit: cover;
+}
+/* */
+
+.start-button {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 0.9rem 2.2rem;
+    background-color: #7e57c2;
+    color: #ffffff;
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 300;
+    border: none;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 1.1rem;
+    box-shadow: 0 0 10px rgba(126, 87, 194, 0.4);
+    transform: scale(1);
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-sizing: border-box;
+    transform-origin: center center;
+    margin-left: 2rem;
+
+
+}
+
+.start-button:hover {
+    background-color: #6b46b5;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+
 
 
