@@ -6,6 +6,10 @@
     <link rel="stylesheet" th:href="@{/css/styles.css}" />
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@200;300;400;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+
 </head>
 <body>
 
@@ -29,7 +33,7 @@
             <th>KONTAKTPERSON</th>
             <th>STATUS</th>
             <th>ANTECKNING</th>
-            <th>ÅTGÄRD</th>
+            <th>ÄNDRA/TA BORT</th>
         </tr>
         </thead>
         <tbody>
@@ -41,9 +45,10 @@
             <td th:text="${job.status}">Status</td>
             <td th:text="${job.notes}">Anteckningar</td>
             <td>
-                <a th:href="@{'/applications/edit/' + ${job.id}}">Ändra ✏️</a>
-                <a th:href="@{'/applications/delete/' + ${job.id}}"
-                   onclick="return confirm('Är du säker på att du vill ta bort denna ansökan?')">Ta bort 🗑️</a>
+                <a th:href="@{'/applications/edit/' + ${job.id}}" class="icon-link" title="Ändra"><i class="fa-regular fa-pen-to-square"></i></a>
+                <a th:href="@{'/applications/delete/' + ${job.id}}" class="icon-link" title="Ta bort"
+                   onclick="return confirm('Är du säker på att du vill ta bort denna ansökan?')"><i class="fa-solid fa-trash-can"></i></a>
+
             </td>
         </tr>
         </tbody>

@@ -281,13 +281,18 @@ h1, h2 {
     background-color: rgba(255, 255, 255, 0.05);
 }
 
-/* Länkstil */
-.application-table a {
+
+.application-table .icon-link {
+    display: inline-block;
+    margin-right: 1.5rem; /* luft mellan ikonerna */
     color: #cdb4db;
-    font-weight: 500;
+    font-size: 1.8rem; /* justera för ikonstorlek */
+    transition: transform 0.2s ease, color 0.2s ease;
     text-decoration: none;
+    margin-left: 1.3rem;
 }
 
-.application-table a:hover {
-    text-decoration: underline;
+.application-table .icon-link:hover {
+    transform: scale(1.3);
+    color: #eac9f1;
 }
