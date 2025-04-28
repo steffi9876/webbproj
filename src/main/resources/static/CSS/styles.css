@@ -357,3 +357,8 @@ h1, h2 {
     background-color: #f1e4f9;
     transform: scale(1.05);
 }
+
+.form-title {
+    text-align: center; /* ← Centrerar texten i rubriken */
+    text-transform: uppercase;
+}

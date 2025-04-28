@@ -4,52 +4,60 @@
   <meta charset="UTF-8">
   <title>Redigera ansökan</title>
   <link rel="stylesheet" th:href="@{/css/styles.css}" />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@200;300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<p><a th:href="@{/}">🏠 Startsida</a></p>
+<header class="main-header">
+  <nav class="nav-bar">
+    <ul>
+      <li><a th:href="@{/}">STARTSIDA</a></li>
+      <li><a th:href="@{/applications}">VISA ANSÖKNINGAR</a></li>
+      <li><a th:href="@{/applications/new}">LÄGG TILL ANSÖKAN</a></li>
+    </ul>
+  </nav>
+</header>
 
+<section class="form-wrapper">
+  <form th:action="@{'/applications/update/' + ${jobApplication.id}}" th:object="${jobApplication}" method="post" class="styled-form">
+    <h2 class="form-title">Redigera ansökan</h2>
 
-<h1>Redigera ansökan</h1>
+    <div class="form-row">
+      <label>Företag:
+        <input type="text" th:field="*{company}" />
+      </label>
 
-<form th:action="@{'/applications/update/' + ${jobApplication.id}}" th:object="${jobApplication}" method="post">
-  <label>Företag:
-    <input type="text" th:field="*{company}" />
-    <span th:if="${#fields.hasErrors('company')}" th:errors="*{company}"></span>
-  </label>
+      <label>Roll:
+        <input type="text" th:field="*{position}" />
+      </label>
+    </div>
 
-  <label>Roll:
-    <input type="text" th:field="*{position}" />
-    <span th:if="${#fields.hasErrors('position')}" th:errors="*{position}"></span>
-  </label>
+    <div class="form-row">
+      <label>Ansökningsdatum:
+        <input type="date" th:field="*{applicationDate}" />
+      </label>
 
-  <label>Ansökningsdatum:
-    <input type="date" th:field="*{applicationDate}" />
-    <span th:if="${#fields.hasErrors('applicationDate')}" th:errors="*{applicationDate}"></span>
-  </label>
+      <label>Kontaktperson:
+        <input type="text" th:field="*{contactPerson}" />
+      </label>
+    </div>
 
-  <label>Kontaktperson:
-    <input type="text" th:field="*{contactPerson}" />
-  </label>
+    <label>Status:
+      <select th:field="*{status}">
+        <option value="">Välj status</option>
+        <option value="Sökt">Sökt</option>
+        <option value="Intervju">Intervju</option>
+        <option value="Nej">Nej</option>
+      </select>
+    </label>
 
-  <label>Status:
-    <select th:field="*{status}">
-      <option value="">Välj status</option>
-      <option value="Sökt">Sökt</option>
-      <option value="Intervju">Intervju</option>
-      <option value="Nej">Nej</option>
-    </select>
-    <span th:if="${#fields.hasErrors('status')}" th:errors="*{status}"></span>
-  </label>
+    <label>Anteckningar:
+      <textarea th:field="*{notes}"></textarea>
+    </label>
 
-  <label>Anteckningar:
-    <textarea th:field="*{notes}"></textarea>
-  </label>
-
-  <button type="submit">Spara ändringar</button>
-</form>
-
-<p><a th:href="@{/applications}">⬅️ Tillbaka till listan</a></p>
+    <button type="submit">Spara ändringar</button>
+  </form>
+</section>
 
 </body>
 </html>
