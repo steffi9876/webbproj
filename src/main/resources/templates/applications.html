@@ -23,6 +23,11 @@
     </nav>
 </header>
 
+<div class="search-container">
+    <input type="text" id="searchInput" placeholder="Sök..." onkeyup="filterApplications()" />
+</div>
+
+
 <div class="table-wrapper">
     <table class="application-table">
         <thead>
@@ -54,6 +59,28 @@
         </tbody>
     </table>
 </div>
+
+<script>
+    function filterApplications() {
+        const input = document.getElementById("searchInput");
+        const filter = input.value.toLowerCase();
+        const rows = document.querySelectorAll(".application-table tbody tr");
+
+        rows.forEach(row => {
+            const cells = row.querySelectorAll("td");
+            const combinedText = Array.from(cells)
+                .map(cell => cell.textContent.toLowerCase())
+                .join(" ");
+
+            if (combinedText.includes(filter)) {
+                row.style.display = "";
+            } else {
+                row.style.display = "none";
+            }
+        });
+    }
+</script>
+
 
 </body>
 </html>

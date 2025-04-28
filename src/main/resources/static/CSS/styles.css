@@ -362,3 +362,38 @@ h1, h2 {
     text-align: center; /* ← Centrerar texten i rubriken */
     text-transform: uppercase;
 }
+
+/* */
+
+.search-container {
+    display: flex;
+    justify-content: flex-start; /* ← Vänsterjustera */
+    margin-bottom: 2rem;
+    padding-left: 1rem; /* ← Lite vänsterpadding så den inte klistrar fast helt */
+}
+
+#searchInput {
+    width: 450px; /* ← Gör sökrutan bredare */
+    padding: 0.8rem 1rem;
+    border: none;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    color: white;
+    font-size: 1rem;
+    font-family: 'Source Sans 3', sans-serif;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+    outline: none;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#searchInput::placeholder {
+    color: #cccccc;
+    font-weight: 300;
+}
+
+#searchInput:focus {
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 6px 14px rgba(255, 255, 255, 0.2);
+}
